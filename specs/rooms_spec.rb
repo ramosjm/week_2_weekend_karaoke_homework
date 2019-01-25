@@ -24,11 +24,8 @@ class RoomTest < MiniTest::Test
     assert_equal(["Nancy Drew"],@room.add_guest_to_room(@guest))
   end
 
-  # def test_has_guest()
-  #   assert_equal(["Nancy Drew"],@guest.guest_name)
-  # end
 
   def test_add_song_to_playlist()
-    assert_equal("Thunderstruck",@song.song_title)
+    assert_equal(["Thunderstruck"],@room.add_song_to_playlist(@song.song_title))
   end
 end
