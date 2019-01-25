@@ -46,7 +46,12 @@ class RoomTest < MiniTest::Test
     assert_equal("Playing: Thunderstruck by AC/DC",@room.play_song(@song))
   end
 
-  def test_pased_song()
+  def test_paused_song()
     assert_equal("Song Paused: Thunderstruck by AC/DC",@room.pause_song(@song))
   end
+
+  def test_check_in()
+    assert_equal("Welcome Nancy Drew. You have Checked In successfully!",@room.check_in(@guest))
+  end
+
 end

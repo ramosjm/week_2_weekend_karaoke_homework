@@ -26,10 +26,15 @@ class Room
   end
 
   def play_song(song)
-    return p "Playing: #{song.song_title} by #{song.artist}"
+    return "Playing: #{song.song_title} by #{song.artist}"
   end
   def pause_song(song)
-    return p "Song Paused: #{song.song_title} by #{song.artist}"
+    return "Song Paused: #{song.song_title} by #{song.artist}"
+  end
+
+  def check_in(guest)
+    add_guest_to_room(guest)
+    return "Welcome #{guest.guest_name}. You have Checked In successfully!"
   end
 
 end
