@@ -54,4 +54,10 @@ class RoomTest < MiniTest::Test
     assert_equal("Welcome Nancy Drew. You have Checked In successfully!",@room.check_in(@guest))
   end
 
+  def test_check_out()
+    @room.add_guest_to_room(@guest)
+    assert_equal("Nancy Drew has been Checked Out. Please come again!",@room.check_out(@guest))
+  end
+
+
 end
