@@ -12,4 +12,8 @@ class SongTest < MiniTest::Test
     assert_equal(Song,@song.class)
   end
 
+  def test_get_song_title()
+    assert_equal("Thunderstruck",@song.song_title)
+  end
+
 end
