@@ -49,13 +49,13 @@ class Room
     group.each{|person|@guests << person }
   end
 
-  def over_capacity_group(group)
-    return "Room over capacity, please try a new room or come back later." if group.count > @capacity - number_of_guests()
-  end
-
   def over_capacity_guest(guest)
     guest_array = []
-    guest_array << guest.guest_name
+    if guest.class == Array
+      guest_array = guest
+    else
+      guest_array << guest.guest_name
+    end
     return "Room over capacity, please try a new room or come back later." if guest_array.count > @capacity - number_of_guests()
   end
 
