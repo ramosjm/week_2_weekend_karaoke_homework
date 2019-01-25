@@ -47,7 +47,11 @@ class Room
 
   def add_group_to_room(group)
     group.each{|person|@guests << person }
-
   end
+  def over_capacity(group)
+    return "Room over capacity, please try a new room or come back later." if group.count > number_of_guests()
+  end
+
+
 
 end

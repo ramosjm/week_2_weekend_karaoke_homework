@@ -74,16 +74,11 @@ class RoomTest < MiniTest::Test
     assert_equal(4,@room.number_of_guests())
   end
 
+  def test_over_capacity()
+    room = Room.new("Bombay",2)
+    assert_equal("Room over capacity, please try a new room or come back later.",room.over_capacity(@group))
 
-
-
-
-  # def test_over_capacity()
-  #   room = Room.new("Bombay",2)
-  #   room.add_group_to_room(@group)
-  #
-  #
-  # end
+  end
 
 
 end
