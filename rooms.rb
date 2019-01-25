@@ -41,5 +41,13 @@ class Room
     remove_guest_from_room(guest)
     return "#{guest.guest_name} has been Checked Out. Please come again!"
   end
+  def number_of_guests()
+    return @guests.count
+  end
+
+  def add_group_to_room(group)
+    group.each{|person|@guests << person }
+
+  end
 
 end
