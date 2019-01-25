@@ -30,7 +30,12 @@ class RoomTest < MiniTest::Test
   end
 
   def test_add_song_to_playlist()
-    assert_equal(["Thunderstruck"],@room.add_song_to_playlist(@song.song_title))
+    assert_equal(["Thunderstruck"],@room.add_song_to_playlist(@song))
+  end
+
+  def test_remove_song_from_playlist()
+    @room.add_song_to_playlist(@song)
+    assert_equal([],@room.remove_song_from_playlist(@song))
   end
 
   def test_check_capacity()

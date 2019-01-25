@@ -17,10 +17,13 @@ class Room
   end
 
   def add_song_to_playlist(song)
-    return @playlist << song
+    return @playlist << song.song_title
   end
 
-
+  def remove_song_from_playlist(song)
+    song_index = @playlist.index(song.song_title)
+    return @playlist.pop(song_index)
+  end
 
 
 end
