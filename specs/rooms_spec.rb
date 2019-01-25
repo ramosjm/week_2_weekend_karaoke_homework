@@ -8,11 +8,11 @@ class RoomTest < MiniTest::Test
 
   def setup()
     @guest = Guest.new("Nancy Drew")
-    guest_1 = Guest.new("Dave")
-    guest_2 = Guest.new("Steve")
-    guest_3 = Guest.new("Karla")
-    guest_4 = Guest.new("Tracey")
-    @group = [guest_1,guest_2,guest_3,guest_4]
+    @guest_1 = Guest.new("Dave")
+    @guest_2 = Guest.new("Steve")
+    @guest_3 = Guest.new("Karla")
+    @guest_4 = Guest.new("Tracey")
+    @group = [@guest_1,@guest_2,@guest_3,@guest_4]
     @room = Room.new("AC/DC",20)
     @song = Song.new("Thunderstruck","AC/DC")
   end
@@ -74,10 +74,17 @@ class RoomTest < MiniTest::Test
     assert_equal(4,@room.number_of_guests())
   end
 
-  def test_over_capacity()
+  def test_over_capacity_group()
     room = Room.new("Bombay",2)
-    assert_equal("Room over capacity, please try a new room or come back later.",room.over_capacity(@group))
+    assert_equal("Room over capacity, please try a new room or come back later.",room.over_capacity_group(@group))
 
+  end
+
+  def test_over_capacity_single_guest()
+    room = Room.new("Bombay",2)
+    room.add_guest_to_room(@guest_1)
+    room.add_guest_to_room(@guest_2)
+    assert_equal("Room over capacity, please try a new room or come back later.",room.over_capacity_guest(@guest))
   end
 
 
