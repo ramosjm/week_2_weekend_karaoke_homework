@@ -41,4 +41,8 @@ class RoomTest < MiniTest::Test
   def test_check_capacity()
     assert_equal(20,@room.capacity)
   end
+
+  def test_play_song()
+    assert_equal("Playing: Thunderstruck",@room.play_song(@song))
+  end
 end

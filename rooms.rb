@@ -25,5 +25,8 @@ class Room
     return @playlist.pop(song_index)
   end
 
+  def play_song(song)
+    return p "Playing: #{song.song_title}"
+  end
 
 end
