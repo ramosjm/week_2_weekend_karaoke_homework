@@ -15,5 +15,9 @@ class RoomTest < MiniTest::Test
     assert_equal(Room,@room.class)
   end
 
+  def test_get_room_name()
+    assert_equal("AC/DC",@room.room_name)
+  end
+
 
 end
