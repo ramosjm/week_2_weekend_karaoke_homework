@@ -9,7 +9,7 @@ class RoomTest < MiniTest::Test
   def setup()
     @guest = Guest.new("Nancy Drew")
     @room = Room.new("AC/DC",20)
-    @song = Song.new("Thunderstruck")
+    @song = Song.new("Thunderstruck","AC/DC")
   end
 
   def test_can_create_room()
