@@ -28,5 +28,8 @@ class Room
   def play_song(song)
     return p "Playing: #{song.song_title}"
   end
+  def pause_song(song)
+    return p "Song Paused: #{song.song_title}"
+  end
 
 end
