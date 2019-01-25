@@ -8,7 +8,7 @@ class RoomTest < MiniTest::Test
 
   def setup()
     @guest = Guest.new("Nancy Drew")
-    @room = Room.new("AC/DC",@guest)
+    @room = Room.new("AC/DC")
     @song = Song.new("Thunderstruck")
   end
 
@@ -20,9 +20,13 @@ class RoomTest < MiniTest::Test
     assert_equal("AC/DC",@room.room_name)
   end
 
-  def test_has_guest()
-    assert_equal("Nancy Drew",@guest.guest_name)
+  def test_add_guest_to_room()
+    assert_equal(["Nancy Drew"],@room.add_guest_to_room(@guest))
   end
+
+  # def test_has_guest()
+  #   assert_equal(["Nancy Drew"],@guest.guest_name)
+  # end
 
   def test_add_song_to_playlist()
     assert_equal("Thunderstruck",@song.song_title)
