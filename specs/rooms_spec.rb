@@ -15,6 +15,8 @@ class RoomTest < MiniTest::Test
     @group = [@guest_1,@guest_2,@guest_3,@guest_4]
     @room = Room.new("AC/DC",20)
     @song = Song.new("Thunderstruck","AC/DC")
+    @song_1 = Song.new("You","Pretty Wreckless")
+    @song_2 = Song.new("Losing my Religion","REM")
   end
 
   def test_can_create_room()
@@ -33,9 +35,7 @@ class RoomTest < MiniTest::Test
     @room.add_guest_to_room(@guest)
     @room.add_guest_to_room(@guest_1)
     @room.add_guest_to_room(@guest_2)
-    p @room
     @room.remove_guest_from_room(@guest_2)
-    p @room
     assert_equal(2,@room.number_of_guests())
   end
 
@@ -45,7 +45,11 @@ class RoomTest < MiniTest::Test
 
   def test_remove_song_from_playlist()
     @room.add_song_to_playlist(@song)
-    assert_equal([],@room.remove_song_from_playlist(@song))
+    @room.add_song_to_playlist(@song_1)
+    @room.add_song_to_playlist(@song_2)
+    @room.remove_song_from_playlist(@song)
+    p @room
+    assert_equal(2,@room.number_of_songs())
   end
 
   def test_check_capacity()

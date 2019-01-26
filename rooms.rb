@@ -22,7 +22,11 @@ class Room
 
   def remove_song_from_playlist(song)
     song_index = @playlist.index(song.song_title)
-    return @playlist.delete_at(song_index)
+    if song_index == 0
+      return @playlist.shift
+    else
+      return @playlist.delete_at(song_index)
+    end
   end
 
   def play_song(song)
@@ -36,7 +40,12 @@ class Room
     return @guests.count
   end
 
+  def number_of_songs()
+    return @playlist.count
+  end
+
   def add_group_to_room(group)
+    over_capacity_guest(group)
     group.each{|person|@guests << person }
   end
 
