@@ -59,6 +59,10 @@ class Room
     return "Room over capacity, please try a new room or come back later." if guest_array.count > @capacity - number_of_guests()
   end
 
+  def get_playlist()
+    return @playlist
+  end
+
 
 
 

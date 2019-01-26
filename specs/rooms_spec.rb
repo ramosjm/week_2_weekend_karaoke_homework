@@ -17,6 +17,7 @@ class RoomTest < MiniTest::Test
     @song = Song.new("Thunderstruck","AC/DC")
     @song_1 = Song.new("You","Pretty Wreckless")
     @song_2 = Song.new("Losing my Religion","REM")
+    @playlist = [@song.song_title,@song_1.song_title,@song_2.song_title]
   end
 
   def test_can_create_room()
@@ -77,7 +78,6 @@ class RoomTest < MiniTest::Test
   def test_over_capacity__group()
     room = Room.new("Bombay",2)
     assert_equal("Room over capacity, please try a new room or come back later.",room.over_capacity_guest(@group))
-
   end
 
   def test_over_capacity__single_guest()
@@ -85,6 +85,13 @@ class RoomTest < MiniTest::Test
     room.add_guest_to_room(@guest_1)
     room.add_guest_to_room(@guest_2)
     assert_equal("Room over capacity, please try a new room or come back later.",room.over_capacity_guest(@guest))
+  end
+
+  def test_get_playlist()
+    @room.add_song_to_playlist(@song)
+    @room.add_song_to_playlist(@song_1)
+    @room.add_song_to_playlist(@song_2)
+    assert_equal(@playlist, @room.get_playlist())
   end
 
 
