@@ -33,7 +33,9 @@ class RoomTest < MiniTest::Test
     @room.add_guest_to_room(@guest)
     @room.add_guest_to_room(@guest_1)
     @room.add_guest_to_room(@guest_2)
-    @room.remove_guest_from_room(@guest_1)
+    p @room
+    @room.remove_guest_from_room(@guest_2)
+    p @room
     assert_equal(2,@room.number_of_guests())
   end
 

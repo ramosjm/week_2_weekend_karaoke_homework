@@ -13,7 +13,7 @@ class Room
 
   def remove_guest_from_room(guest)
     guest_index = @guests.index(guest.guest_name)
-     return @guests.pop(guest_index)
+     return @guests.delete_at(guest_index)
   end
 
   def add_song_to_playlist(song)
@@ -22,7 +22,7 @@ class Room
 
   def remove_song_from_playlist(song)
     song_index = @playlist.index(song.song_title)
-    return @playlist.pop(song_index)
+    return @playlist.delete_at(song_index)
   end
 
   def play_song(song)
@@ -32,15 +32,6 @@ class Room
     return "Song Paused: #{song.song_title} by #{song.artist}"
   end
 
-  # def check_in(guest)
-  #   add_guest_to_room(guest)
-  #   return "Welcome #{guest.guest_name}. You have Checked In successfully!"
-  # end
-  #
-  # def check_out(guest)
-  #   remove_guest_from_room(guest)
-  #   return "#{guest.guest_name} has been Checked Out. Please come again!"
-  # end
   def number_of_guests()
     return @guests.count
   end

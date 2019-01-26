@@ -8,14 +8,14 @@ require_relative("../songs.rb")
 class VenueTest < MiniTest::Test
 
     def setup()
-      @venue = Venue.new("K Bar",100.00,20)
+      @room = Room.new("AC/DC",20)
+      @venue = Venue.new("K Bar",@room,100.00,20)
       @guest = Guest.new("Nancy Drew",20.00,"You")
       @guest_1 = Guest.new("Dave",15.00,"Thunderstruck")
       @guest_2 = Guest.new("Steve",50.00,"Me")
       @guest_3 = Guest.new("Karla",30.00,"Him")
       @guest_4 = Guest.new("Tracey",10.00,"Her")
       @group = [@guest_1,@guest_2,@guest_3,@guest_4]
-      @room = Room.new("AC/DC",20)
       @song = Song.new("Thunderstruck","AC/DC")
     end
 
@@ -36,18 +36,17 @@ class VenueTest < MiniTest::Test
     end
 
     def test_check_in()
-      @room.check_in(@guest)
+      @venue.check_in(@room,@guest)
       assert_equal(1,@room.number_of_guests())
     end
 
     def test_check_out()
-      @room.check_in(@guest)
-      @room.check_in(@guest_1)
-      @room.check_in(@guest_2)
+      @venue.check_in(@room,@guest)
+      @venue.check_in(@room,@guest_1)
+      @venue.check_in(@room,@guest_2)
       p @room.number_of_guests
-      @room.check_out(@guest_2)
+      @venue.check_out(@room,@guest_2)
       p @room.number_of_guests
-
       assert_equal(2,@room.number_of_guests())
     end
 
