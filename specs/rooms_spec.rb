@@ -31,7 +31,10 @@ class RoomTest < MiniTest::Test
 
   def test_remove_guest_from_room
     @room.add_guest_to_room(@guest)
-    assert_equal([],@room.remove_guest_from_room(@guest))
+    @room.add_guest_to_room(@guest_1)
+    @room.add_guest_to_room(@guest_2)
+    @room.remove_guest_from_room(@guest_1)
+    assert_equal(2,@room.number_of_guests())
   end
 
   def test_add_song_to_playlist()
@@ -53,15 +56,6 @@ class RoomTest < MiniTest::Test
 
   def test_paused_song()
     assert_equal("Song Paused: Thunderstruck by AC/DC",@room.pause_song(@song))
-  end
-
-  def test_check_in()
-    assert_equal("Welcome Nancy Drew. You have Checked In successfully!",@room.check_in(@guest))
-  end
-
-  def test_check_out()
-    @room.add_guest_to_room(@guest)
-    assert_equal("Nancy Drew has been Checked Out. Please come again!",@room.check_out(@guest))
   end
 
   def test_number_of_guests()
