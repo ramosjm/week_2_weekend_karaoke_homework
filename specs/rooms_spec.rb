@@ -7,11 +7,11 @@ require_relative("../guests.rb")
 class RoomTest < MiniTest::Test
 
   def setup()
-    @guest = Guest.new("Nancy Drew")
-    @guest_1 = Guest.new("Dave")
-    @guest_2 = Guest.new("Steve")
-    @guest_3 = Guest.new("Karla")
-    @guest_4 = Guest.new("Tracey")
+    @guest = Guest.new("Nancy Drew",20.00,"You")
+    @guest_1 = Guest.new("Dave",15.00,"Thunderstruck")
+    @guest_2 = Guest.new("Steve",50.00,"Me")
+    @guest_3 = Guest.new("Karla",30.00,"Him")
+    @guest_4 = Guest.new("Tracey",10.00,"Her")
     @group = [@guest_1,@guest_2,@guest_3,@guest_4]
     @room = Room.new("AC/DC",20)
     @song = Song.new("Thunderstruck","AC/DC")
