@@ -7,4 +7,10 @@ class Guest
     @guest_cash = guest_cash
     @favourite_song = favourite_song
   end
+
+  def reduce_cash(guest,cash)
+   current_cash = guest.guest_cash()
+   return current_cash -= cash
+  end
+
 end

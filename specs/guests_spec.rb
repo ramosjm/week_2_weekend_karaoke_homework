@@ -23,6 +23,9 @@ class GuestTest < MiniTest::Test
   def test_get_favourite_song()
     assert_equal("You",@guest.favourite_song)
   end
+  def test_reduce_cash()
+    assert_equal(10.00,@guest.reduce_cash(@guest,10))
+  end
 
 
 end
