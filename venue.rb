@@ -17,5 +17,9 @@ class Venue
     room.remove_guest_from_room(guest)
     return "#{guest.guest_name} has been Checked Out. Please come again!"
   end
+  
+  def add_fee_to_till(fee)
+    return @till += fee
+  end
 
 end

@@ -50,4 +50,13 @@ class VenueTest < MiniTest::Test
       assert_equal(2,@room.number_of_guests())
     end
 
+    def test_add_fee_to_till()
+      assert_equal(120, @venue.add_fee_to_till(@venue.fee))
+    end
+
+
+    # def test_charge_fee()
+    #   @venue.charge_fee(@venue.fee,)
+    #end
+
 end
