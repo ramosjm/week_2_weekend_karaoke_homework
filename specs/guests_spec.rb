@@ -8,7 +8,7 @@ class GuestTest < MiniTest::Test
 
   def setup()
     @guest = Guest.new("Nancy Drew" ,20.00 , "Highway to Hell")
-    @room = @room = Room.new("AC/DC",20)
+    @room = Room.new("AC/DC",20)
     @song = Song.new("Highway to Hell","AC/DC")
   end
 
@@ -29,6 +29,10 @@ class GuestTest < MiniTest::Test
   end
   def test_reduce_cash()
     assert_equal(10.00,@guest.reduce_cash(@guest,10))
+  end
+
+  def test_favourite_song_in_playlist()
+    assert_equal("That's my Jam!",@guest.favourite_song_in_playlist(@room.get_playlist))
   end
 
 

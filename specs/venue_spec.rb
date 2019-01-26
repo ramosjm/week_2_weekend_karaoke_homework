@@ -8,7 +8,7 @@ require_relative("../songs.rb")
 class VenueTest < MiniTest::Test
 
     def setup()
-      @room = Room.new("AC/DC",20)
+      @room = Room.new("AC/DC",5)
       @venue = Venue.new("K Bar",@room,100.00,20)
       @guest = Guest.new("Nancy Drew",20.00,"You")
       @guest_1 = Guest.new("Dave",15.00,"Thunderstruck")
@@ -37,7 +37,8 @@ class VenueTest < MiniTest::Test
 
     def test_check_in()
       @venue.check_in(@room,@guest)
-      assert_equal(1,@room.number_of_guests())
+      @venue.check_in(@room,@guest_1)
+      assert_equal(2,@room.number_of_guests())
     end
 
     def test_check_out()
@@ -51,6 +52,6 @@ class VenueTest < MiniTest::Test
     def test_add_fee_to_till()
       assert_equal(120, @venue.add_fee_to_till(@venue.fee))
     end
-    
+
 
 end

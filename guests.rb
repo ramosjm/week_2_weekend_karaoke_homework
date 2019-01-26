@@ -13,4 +13,10 @@ class Guest
    return current_cash -= cash
   end
 
+  def favourite_song_in_playlist(room)
+    return "That's my Jam!" if room = @favourite_song
+  end
+
+
+
 end
