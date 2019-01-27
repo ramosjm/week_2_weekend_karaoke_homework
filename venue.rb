@@ -26,4 +26,10 @@ class Venue
     return @till += fee
   end
 
+  def charge_fee_to_guest(guest,fee)
+    add_fee_to_till(fee)
+    guest_cash = guest.guest_cash - fee
+    return guest_cash
+  end
+
 end
